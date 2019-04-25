@@ -147,12 +147,12 @@ kube_ps1 () {
   local reset_color="%{$reset_color%}"
   [[ ${KUBE_PS1_ENABLED} != 'true' ]] && return
 
-  KUBE_PS1="${reset_color}$KUBE_PS1_PREFIX"
+  KUBE_PS1="$KUBE_PS1_PREFIX${reset_color}"
   KUBE_PS1+="${KUBE_PS1_COLOR_SYMBOL}$(_kube_ps1_symbol)"
   KUBE_PS1+="${reset_color}$KUBE_PS1_SEPERATOR"
   KUBE_PS1+="${KUBE_PS1_COLOR_CONTEXT}$KUBE_PS1_CONTEXT${reset_color}"
-  KUBE_PS1+="$KUBE_PS1_DIVIDER"
-  KUBE_PS1+="${KUBE_PS1_COLOR_NS}$KUBE_PS1_NAMESPACE${reset_color}"
+#  KUBE_PS1+="$KUBE_PS1_DIVIDER"
+  KUBE_PS1+="${KUBE_PS1_COLOR_NS}$KUBE_PS1_DIVIDER$KUBE_PS1_NAMESPACE"
   KUBE_PS1+="$KUBE_PS1_SUFFIX"
 
   echo "${KUBE_PS1}"
