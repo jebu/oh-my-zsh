@@ -236,6 +236,10 @@ prompt_aws() {
   esac
 }
 
+prompt_kubens() {
+  prompt_segment cyan default "$(kube_ps1)"
+}
+
 ## Main prompt
 build_prompt() {
   RETVAL=$?
@@ -247,6 +251,7 @@ build_prompt() {
   prompt_git
   prompt_bzr
   prompt_hg
+  prompt_kubens
   prompt_end
 }
 
