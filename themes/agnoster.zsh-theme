@@ -237,6 +237,7 @@ prompt_aws() {
 }
 
 prompt_kubens() {
+  [[ ${KUBE_PS1_ENABLED} != 'true' ]] && return
   prompt_segment cyan default "$(kube_ps1)"
 }
 
